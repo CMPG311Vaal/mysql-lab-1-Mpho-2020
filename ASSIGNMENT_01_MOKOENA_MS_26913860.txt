@@ -1,0 +1,208 @@
+
+mysql> use bidvestbank
+Database changed
+mysql> show tables
+    -> ;
++-----------------------+
+| Tables_in_bidvestbank |
++-----------------------+
+| bankbranch            |
+| borrower              |
+| customer              |
+| customeraccount       |
+| depositor             |
+| employee              |
+| loan                  |
++-----------------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into bankbranch values("Amanzimtoti", "Durban",300000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into bankbranch values(" Universitas", "Bloemfontein", 2100000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values("Modise", "L-16");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values("Jooste", "L-93");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values("Johnston", "L-15");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert  into borrower values("Zwane", "L-14");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values ("Smith", "L-17");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into borrower values("Smith", "L-11");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into borrower values("Williams", "L-17");
+ERROR 1062 (23000): Duplicate entry 'L-17' for key 'borrower.PRIMARY'
+mysql> insert into customer values ("Modise", "Spring", "George");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values("Brooks", "Senator", "Johannesburg");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values ("Jooste", "North", "Kimberly");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values("Lombard", "Sand Hill", "Nelspruit");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values("Mokoena", "Walnut", "Port-Elizabeth);
+    "> ";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> insert into customer values ("Mokoena", "Walnut","Port-Elizabeth");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values("johnson", ""Mmabatho", "Mafikeng");
+    "> "";
+    "> ";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Mmabatho", "Mafikeng");
+"";
+"' at line 1
+mysql> insert into customer values("Johnson", "Mmabatho", "Mafikeng");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values("Smith", "North", "Kimberly");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customer values("Williams", "Nassau", "Giyane");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositor values ("John", "A-5624");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositor values("John", "A-5624);
+    "> ";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> use bidvestbank
+Database changed
+mysql> insert into depositor values("John", "A-5624");
+ERROR 1062 (23000): Duplicate entry 'A-5624' for key 'depositor.PRIMARY'
+mysql> insert into depositor values("Lindsay", "A-3453");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into depositor values("Dlamini", "A-2542");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values("L-11", "Mamelodi", 900);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values("L-14", "Newtown", 1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values("L-15","Sunyside", 1300);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into loan values("L-16","Mabopane",500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values("Modise", "Sunnyside", 1500);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> show employee
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'employee' at line 1
+mysql> insert into employee values("Modise", "Sunnyside", 1500);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee values("Brown", Sunnyside");
+    "> ";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '");
+"' at line 1
+mysql>  insert into customeraccount values("A-5324", "Newtown, 500);
+    "> ";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> insert into customervalues values("A-5324", "Newtown", 500);
+ERROR 1146 (42S02): Table 'bidvestbank.customervalues' doesn't exist
+mysql> insert into customeraccount values("A-7794", "Sunnyside", 400.00);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into customeraccount values("A-5324", "Newtown", 500.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customeraccount("A-7794", "Newtown", 900.00);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"A-7794", "Newtown", 900.00)' at line 1
+mysql> insert into customeraccount ("A-7794", "Midrand", 900.00);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"A-7794", "Midrand", 900.00)' at line 1
+mysql> insert into customeraccount values ("A-7794", "Midrand", 900.00);
+ERROR 1062 (23000): Duplicate entry 'A-7794' for key 'customeraccount.PRIMARY'
+mysql> insert into customeraccount values("A-3453", "Midrand", 750.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into  customeraccount values("A-2542", "Mamelodi", 350.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into customeraccount values("A-3453", "Universitas", 750.00);
+ERROR 1062 (23000): Duplicate entry 'A-3453' for key 'customeraccount.PRIMARY'
+mysql> insert into customeraccount values("A-4467", "Mabopane",700.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select from *customeraccount where balance <700;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from *customeraccount where balance <700' at line 1
+mysql> select *from customeraccount where balance <700;
++---------------+------------+---------+
+| accountNumber | branchName | balance |
++---------------+------------+---------+
+| A-2542        | Mamelodi   |     350 |
+| A-5324        | Newtown    |     500 |
+| A-7794        | Sunnyside  |     400 |
++---------------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from customer where customerCity = "Johannesburg";
+ERROR 1054 (42S22): Unknown column 'customerCity' in 'where clause'
+mysql> select * from customer where customer_city = "Johannesburg";
+ERROR 1054 (42S22): Unknown column 'customer_city' in 'where clause'
+mysql>  select * from customer where customerCity = "Mabopane";
+ERROR 1054 (42S22): Unknown column 'customerCity' in 'where clause'
+mysql> select @avg_salary:= AVG(assets) from bankbranch;
++---------------------------+
+| @avg_salary:= AVG(assets) |
++---------------------------+
+|        3471428.5714285714 |
++---------------------------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> select MAX(assets) from bankbranch;
++-------------+
+| MAX(assets) |
++-------------+
+|     9000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select employeeName from employee where branchName = "Sunnyside";
+Empty set (0.00 sec)
+
+mysql> select from * employee where branch_name = "Sunnyside";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from * employee where branch_name = "Sunnyside"' at line 1
+mysql> select * from employee where branchName = "Sunnyside";
+Empty set (0.00 sec)
+
+mysql> select * from employee where branchName ='Sunnyside';
+Empty set (0.00 sec)
+
+mysql> select * from borrower;
++--------------+------------+
+| customerName | loanNumber |
++--------------+------------+
+| Smith        | L-11       |
+| Zwane        | L-14       |
+| Johnston     | L-15       |
+| Modise       | L-16       |
+| Smith        | L-17       |
+| Jooste       | L-93       |
++--------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from bidvestbank where balance > 900;
+ERROR 1146 (42S02): Table 'bidvestbank.bidvestbank' doesn't exist
+mysql> select * from customeraccount where balance > 900;
+Empty set (0.00 sec)
+
+mysql>
